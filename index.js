@@ -9,6 +9,7 @@ server.use(helmet())
 server.use(express.json())
 server.use('/api/dishes', DishesRouter)
 server.use('/api/recipes', RecipesRouter)
+server.use('/api/recipes', RecipesRouter)
 
 server.get('/', (req, res) => res.send('<h2>Welcome to the API</h2>'))
 

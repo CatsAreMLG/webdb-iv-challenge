@@ -11,6 +11,18 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const recipe = await Recipes.getRecipe(id)
+    recipe
+      ? res.status(200).json(recipe)
+      : res.status(404).json({ error: 'Recipe not found' })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 router.post('/', async (req, res) => {
   const { body } = req
   if (body && body.recipe_name && body.dish_id)
