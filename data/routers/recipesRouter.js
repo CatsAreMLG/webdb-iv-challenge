@@ -15,9 +15,23 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params
   try {
     const recipe = await Recipes.getRecipe(id)
-    recipe
-      ? res.status(200).json(recipe)
-      : res.status(404).json({ error: 'Recipe not found' })
+    if (recipe) {
+      let newRecipe = {
+        recipe_name: '',
+        dish_name: '',
+        ingredients: []
+      }
+      for (let i in recipe) {
+        newRecipe.recipe_name = recipe[i].recipe_name
+        newRecipe.dish_name = recipe[i].dish_name
+        newRecipe.ingredients.push({
+          quantity: recipe[i].quantity,
+          measurement_name: recipe[i].measurement_name,
+          ingredient_name: recipe[i].ingredient_name
+        })
+      }
+      res.status(200).json(newRecipe)
+    } else res.status(404).json({ error: 'Recipe not found' })
   } catch (error) {
     res.status(500).json({ error })
   }
