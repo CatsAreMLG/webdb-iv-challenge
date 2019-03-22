@@ -12,17 +12,6 @@ exports.up = function(knex, Promise) {
       .inTable('dish')
       .onDelete('CASCADE')
       .onUpdate('CASCADE')
-    tbl
-      .integer('ingredient_id')
-      .unsigned()
-      .references('id')
-      .inTable('ingredients')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE')
-    tbl
-      .integer('quantity')
-      .unsigned()
-      .notNullable()
   })
 }
 
