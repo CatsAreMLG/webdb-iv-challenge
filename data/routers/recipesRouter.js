@@ -15,7 +15,8 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params
   try {
     const recipe = await Recipes.getRecipe(id)
-    if (recipe && recipe.recipe_name) {
+    console.log(recipe)
+    if (recipe && recipe.length > 0) {
       let newRecipe = {
         recipe_name: '',
         dish_name: '',
