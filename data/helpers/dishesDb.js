@@ -2,7 +2,8 @@ const db = require('../../dbConfig')
 
 module.exports = {
   getDishes,
-  getDish
+  getDish,
+  addDish
 }
 
 function getDishes() {
@@ -12,4 +13,9 @@ function getDish(id) {
   return db('dishes')
     .where({ id })
     .first()
+}
+function addDish(body) {
+  return db('dishes')
+    .insert(body)
+    .then(ids => ids[0])
 }

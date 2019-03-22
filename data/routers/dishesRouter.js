@@ -23,4 +23,16 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  const { body } = req
+  if (body && body.dish_name)
+    try {
+      const id = await Dishes.addDish(body)
+      res.status(201).json(id)
+    } catch (error) {
+      res.status(500).json({ error })
+    }
+  else res.status(500).json({ error: 'Please provide a dish name' })
+})
+
 module.exports = router
