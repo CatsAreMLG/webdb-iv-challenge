@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
     table.increments()
     table.integer('recipe_id').notNullable()
     table.integer('ingredient_id').notNullable()
+    table.string('measurement_id', 128)
     table
       .float('quantity')
       .notNullable()
