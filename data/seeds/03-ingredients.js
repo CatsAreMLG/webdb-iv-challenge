@@ -5,13 +5,13 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex('ingredients').insert([
-        { ingredient_name: 'cups of flour' },
-        { ingredient_name: 'cups of pasta' },
-        { ingredient_name: 'grams of cheese' },
-        { ingredient_name: 'cups of marinara' },
-        { ingredient_name: 'lbs of ground meat' },
-        { ingredient_name: 'pinches of spice' },
-        { ingredient_name: 'slices of pepperoni' },
+        { ingredient_name: 'flour' },
+        { ingredient_name: 'pasta' },
+        { ingredient_name: 'cheese' },
+        { ingredient_name: 'marinara' },
+        { ingredient_name: 'ground meat' },
+        { ingredient_name: 'spice' },
+        { ingredient_name: 'pepperoni' },
         { ingredient_name: 'tortillas' },
         { ingredient_name: 'avocados' }
       ])
